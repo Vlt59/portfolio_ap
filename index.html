@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mon Portfolio</h1>
+        <nav>
+            <a id="homeLink" class="tab active">Accueil</a>
+            <a id="projectsLink" class="tab inactive">Mes Projets</a>
+            <a id="veilleLink" class="tab inactive">Veille Technologique</a>
+            <a id="secureLink" class="tab inactive">Documents</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page d'accueil -->
+        <section id="home" class="active">
+            <h2>Bienvenue sur mon portfolio</h2>
+            <p>Je suis Valentin Chouaf, un étudiant en BTS SIO.</p>
+        </section>
+
+        <!-- Page des projets -->
+        <section id="projects">
+            <h2>Mes Projets</h2>
+            <ul>
+                <li>Projet 1 - Description du projet</li>
+                <li>Projet 2 - Description du projet</li>
+                <li>Projet 3 - Description du projet</li>
+            </ul>
+        </section>
+
+        <!-- Page de veille technologique -->
+        <section id="veille">
+            <h2>Veille Technologique</h2>
+            <ul>
+                <li>Technologie 1 - Détails de la veille</li>
+                <li>Technologie 2 - Détails de la veille</li>
+                <li>Technologie 3 - Détails de la veille</li>
+            </ul>
+        </section>
+
+        <!-- Page sécurisée -->
+        <section id="secure">
+            <!-- Formulaire de mot de passe pour accéder aux documents -->
+            <h2>Accès Sécurisé</h2>
+            <form id="loginForm">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password">
+                <button type="submit">Accéder</button>
+                <p id="error-message">Mot de passe incorrect</p>
+            </form>
+
+            <!-- Section des documents sécurisés, cachée par défaut -->
+            <div id="documents">
+                <h2>Documents Sécurisés</h2>
+                <ul>
+                    <li><a href="#">Document 1</a></li>
+                    <li><a href="#">Document 2</a></li>
+                    <li><a href="#">Document 3</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Mon Portfolio</p>
+    </footer>
+
+    <script>
+        // Gestion de la navigation entre les sections du site
+        const sections = document.querySelectorAll('section');
+        const links = document.querySelectorAll('nav a');
+        const homeLink = document.getElementById('homeLink');
+        const projectsLink = document.getElementById('projectsLink');
+        const veilleLink = document.getElementById('veilleLink');
+        const secureLink = document.getElementById('secureLink');
+
+        homeLink.addEventListener('click', () => showSection('home'));
+        projectsLink.addEventListener('click', () => showSection('projects'));
+        veilleLink.addEventListener('click', () => showSection('veille'));
+        secureLink.addEventListener('click', () => showSection('secure'));
+
+        function showSection(sectionId) {
+            // Afficher la section sélectionnée
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Met à jour les onglets pour afficher l'onglet actif et les autres plus sombres
+            links.forEach(link => {
+                link.classList.add('inactive');
+                link.classList.remove('active');
+            });
+            document.getElementById(sectionId + 'Link').classList.add('active');
+            document.getElementById(sectionId + 'Link').classList.remove('inactive');
+        }
+
+        // Gestion du formulaire sécurisé pour l'accès aux documents
+        const correctPassword = 'Valentin';
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const passwordInput = document.getElementById('password').value;
+
+            if (passwordInput === correctPassword) {
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('documents').style.display = 'block';
+                document.getElementById('loginForm').style.display = 'none';
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+/* Styles généraux pour la mise en page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Bleu très clair */
+}
+
+header {
+    background-color: #1e3a8a; /* Bleu foncé */
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 0 0 20px 20px; /* Arrondir le bas de l'en-tête */
+}
+
+/* Styles des onglets (nav a) */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin: 0 10px;
+    border-radius: 10px; /* Coins arrondis pour les onglets */
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Onglets inactifs */
+nav a.inactive {
+    background-color: #60a5fa; /* Bleu clair */
+    border-color: #60a5fa;
+    box-shadow: none;
+}
+
+/* Onglet actif */
+nav a.active {
+    background-color: #2563eb; /* Bleu moyen */
+    border-color: #1e3a8a; /* Bordure plus foncée pour l'onglet actif */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles pour les sections */
+main {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px; /* Coins arrondis pour la section principale */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce pour la section */
+}
+
+/* Styles pour les boutons */
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #1e40af; /* Bleu foncé */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Coins arrondis pour les boutons */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2563eb; /* Changement de couleur au survol */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #1e3a8a; /* Bleu foncé */
+    color: white;
+    border-radius: 20px 20px 0 0; /* Arrondir le haut du pied de page */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cache les sections par défaut */
+section {
+    display: none;
+}
+
+/* Affiche uniquement la section active */
+section.active {
+    display: block;
+}
+
+/* Message d'erreur en rouge */
+#error-message {
+    color: red;
+    display: none;
+}
+
+/* Cache la section des documents au départ */
+#documents {
+    display: none;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#documents ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#documents ul li {
+    margin-bottom: 10px;
+}
